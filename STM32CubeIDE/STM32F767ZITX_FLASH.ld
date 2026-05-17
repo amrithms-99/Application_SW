@@ -45,12 +45,20 @@ _Min_Stack_Size = 0x400; /* required amount of stack */
 MEMORY
 {
   RAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 512K
-  FLASH    (rx)    : ORIGIN = 0x8010000,   LENGTH = 1984K
+  APP_HEADER    (rx)	: ORIGIN =Ox8010000,   LENGTH = 1K
+  FLASH    (rx)    : ORIGIN = 0x8010400,   LENGTH = 1984K
+  
 }
 
 /* Sections */
 SECTIONS
 {
+/*The botloader code for firmware validation */
+
+.header :
+{
+    KEEP(*(.header))
+} > APP_HEADER
 
   /* The startup code into "FLASH" Rom type memory */
   .isr_vector :

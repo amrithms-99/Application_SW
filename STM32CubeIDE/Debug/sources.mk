@@ -22,8 +22,10 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Application/User/Core/SWC_LED \
 Application/User/Core \
 Application/User/Startup \
 Drivers/CMSIS \
 Drivers/STM32F7xx_HAL_Driver \
+Middlewares/FreeRTOS \
 
